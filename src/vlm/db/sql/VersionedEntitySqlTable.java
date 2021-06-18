@@ -86,7 +86,7 @@ public abstract class VersionedEntitySqlTable<T> extends EntitySqlTable<T> imple
             selectMaxHeightQuery.addSelect(pkField);
             selectMaxHeightQuery.addGroupBy(pkField);
         }
-        selectMaxHeightQuery.addConditions(tableClass.field("height", Long.class).lt(height));
+        selectMaxHeightQuery.addConditions(tableClass.field("height", Integer.class).lt(height));
         selectMaxHeightQuery.addHaving(tableClass.field("height", Long.class).countDistinct().gt(1));
 
         // delete all fetched accounts, except if it's height is the max height we figured out
