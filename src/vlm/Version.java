@@ -21,6 +21,7 @@ public final class Version {
         this.prereleaseIteration = prereleaseIteration;
     }
 
+    @SuppressWarnings("iteration:method.invocation")    // Iterator has next : Iterator guaranteed to have atleast 3 elements
     public static Version parse(String version) throws IllegalArgumentException {
         try {
             version = version.replace("-", ".").toLowerCase(Locale.ENGLISH);
